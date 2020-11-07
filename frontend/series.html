@@ -1,0 +1,267 @@
+<!-- Page Header-->
+<div class="page-header no-margin-bottom">
+    <div class="container-fluid">
+        <h2 class="h5 no-margin-bottom">
+            Séries
+
+            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarSerie"
+                style="margin-top: -10px;">
+                Adicionar
+            </button>
+        </h2>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="col-sm-12 col-md-12 col-lg-12" style="margin: 0 auto;">
+        <div class="block margin-bottom-sm">
+            <div class="title">
+                <strong>Catálogo</strong>
+                <div class="float-right icone_exibicao" onclick="mudarExibicao('grid')">
+                    <i class="icon-grid"></i>
+                </div>
+            </div>
+            <br>
+            <div id="exibir-lista" style="display: block;">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Título</th>
+                                <th class="text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>The Vampire Diaries</td>
+                                <td class="text-center">
+                                    <button class="btn btn-warning btn-sm" title="Informações">
+                                        <i class="icon-info"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-sm" title="Editar">
+                                        <i class="icon-new-file"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" title="Excluir">
+                                        <i class="icon-close"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>How I Meet Your Mother</td>
+                                <td class="text-center">
+                                    <button class="btn btn-warning btn-sm" title="Informações">
+                                        <i class="icon-info"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-sm" title="Editar">
+                                        <i class="icon-new-file"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" title="Excluir">
+                                        <i class="icon-close"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Friends</td>
+                                <td class="text-center">
+                                    <button class="btn btn-warning btn-sm" title="Informações">
+                                        <i class="icon-info"></i>
+                                    </button>
+                                    <button class="btn btn-info btn-sm" title="Editar">
+                                        <i class="icon-new-file"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" title="Excluir">
+                                        <i class="icon-close"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="exibir-grid" style="display: none;">
+                <div class="row mb-4">
+                    <div class="cartaz">
+                        <header>
+                            The Vampire Diaries
+                        </header>
+                        <section>
+                            <img src="img/capas/tvd.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-warning" title="Informações">
+                                <i class="icon-info"></i>
+                            </button>
+                            <button class="btn btn-success" title="Torrent">
+                                <i class="icon-flow-branch"></i>
+                            </button>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="icon-new-file"></i>
+                            </button>
+                            <button class="btn btn-danger" title="Excluir">
+                                <i class="icon-close"></i>
+                            </button>
+                        </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            How I Meet Your Mother
+                        </header>
+                        <section>
+                            <img src="img/capas/himym.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-warning" title="Informações">
+                                <i class="icon-info"></i>
+                            </button>
+                            <button class="btn btn-success" title="Torrent">
+                                <i class="icon-flow-branch"></i>
+                            </button>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="icon-new-file"></i>
+                            </button>
+                            <button class="btn btn-danger" title="Excluir">
+                                <i class="icon-close"></i>
+                            </button>
+                        </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            Friends
+                        </header>
+                        <section>
+                            <img src="img/capas/friends.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-warning" title="Informações">
+                                <i class="icon-info"></i>
+                            </button>
+                            <button class="btn btn-success" title="Torrent">
+                                <i class="icon-flow-branch"></i>
+                            </button>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="icon-new-file"></i>
+                            </button>
+                            <button class="btn btn-danger" title="Excluir">
+                                <i class="icon-close"></i>
+                            </button>
+                        </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            The Vampire Diaries
+                        </header>
+                        <section>
+                            <img src="img/capas/tvd.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-warning" title="Informações">
+                                <i class="icon-info"></i>
+                            </button>
+                            <button class="btn btn-success" title="Torrent">
+                                <i class="icon-flow-branch"></i>
+                            </button>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="icon-new-file"></i>
+                            </button>
+                            <button class="btn btn-danger" title="Excluir">
+                                <i class="icon-close"></i>
+                            </button>
+                        </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            How I Meet Your Mother
+                        </header>
+                        <section>
+                            <img src="img/capas/himym.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-warning" title="Informações">
+                                <i class="icon-info"></i>
+                            </button>
+                            <button class="btn btn-success" title="Torrent">
+                                <i class="icon-flow-branch"></i>
+                            </button>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="icon-new-file"></i>
+                            </button>
+                            <button class="btn btn-danger" title="Excluir">
+                                <i class="icon-close"></i>
+                            </button>
+                        </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            Friends
+                        </header>
+                        <section>
+                            <img src="img/capas/friends.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-warning" title="Informações">
+                                <i class="icon-info"></i>
+                            </button>
+                            <button class="btn btn-success" title="Torrent">
+                                <i class="icon-flow-branch"></i>
+                            </button>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="icon-new-file"></i>
+                            </button>
+                            <button class="btn btn-danger" title="Excluir">
+                                <i class="icon-close"></i>
+                            </button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modais -->
+<div class="modal fade" id="cadastrarSerie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Série</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo">
+                </div>
+                <div class="form-group">
+                    <label for="temporada">Temporada</label>
+                    <input type="text" class="form-control" id="temporada">
+                </div>
+                <div class="form-group">
+                    <label for="torrent">Link Torrent</label>
+                    <input type="text" class="form-control" id="torrent">
+                </div>
+                <div>
+                    <label for="capa_filme">Capa do Filme</label>
+                    <input type="text" class="form-control" id="capa_filme">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="js/functions/filmes.js"></script>
