@@ -98,7 +98,7 @@
 .icon-new-file:before {
   content: "\75";
 }
-.icon-close:before {
+.fas fa-trash-alt:before {
   content: "\76";
 }
 .icon-flask:before {

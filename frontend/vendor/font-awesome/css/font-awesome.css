@@ -1236,16 +1236,16 @@
 .fa-tumblr-square:before {
   content: "\f174";
 }
-.fa-long-arrow-down:before {
+.fa-angle-down:before {
   content: "\f175";
 }
-.fa-long-arrow-up:before {
+.fa-angle-up:before {
   content: "\f176";
 }
-.fa-long-arrow-left:before {
+.fa-angle-left:before {
   content: "\f177";
 }
-.fa-long-arrow-right:before {
+.fa-angle-right:before {
   content: "\f178";
 }
 .fa-apple:before {

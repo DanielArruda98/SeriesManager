@@ -8,14 +8,9 @@
     color: white;
 }
 
-#exibir-grid {
-    width: 90%;
-    margin: auto;
-}
-
 .cartaz {
-    width: 31%;
-    background-color: black;
+    width: 23%;
+    background-color: rgba(0, 0, 0, 0.25); /* 0.25 ou 0.5*/
     border-radius: 5px;
     margin: 10px 1%;
 }
@@ -27,6 +22,12 @@
 .cartaz header {
     padding: 10px;
     border-bottom: 1px solid rgba(192, 192, 192, 0.37);
+    height: 44px;
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
 }
 
 .cartaz section {
@@ -38,6 +39,31 @@
     padding: 10px;
     text-align: center;
     border-top: 1px solid rgba(192, 192, 192, 0.37);
+}
+
+/* Paginação */
+
+.paginacao .links {
+    margin: 0 auto;
+}
+
+.paginacao a {
+    font-family: "Muli", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-color: #aa1d22;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0px 1px;
+    padding-top: 7px;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.paginacao a:hover {
+    background-color: rgb(12, 12, 12);
 }
 
 @media(max-width: 1050px) {

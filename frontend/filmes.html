@@ -4,8 +4,7 @@
         <h2 class="h5 no-margin-bottom">
             Filmes
 
-            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarFilme"
-                style="margin-top: -10px;">
+            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarFilme" style="margin-top: -10px;">
                 Adicionar
             </button>
         </h2>
@@ -17,72 +16,15 @@
         <div class="block margin-bottom-sm">
             <div class="title">
                 <strong>Catálogo</strong>
-                <div class="float-right icone_exibicao" onclick="mudarExibicao('grid')">
-                    <i class="icon-grid"></i>
+                <div class="float-right">
+                    <div class="row">
+                        <input type="text" class="form-control col-9 mr-3" id="pesquisar" placeholder="Pesquisar">
+                        <i class="fas fa-sort-amount-up col-2 pt-2 align-middle text-center" style="background-color:#aa1d22; color: white; font-size: 20px; border-radius: 2px;"></i>
+                    </div>
                 </div>
             </div>
             <br>
-            <div id="exibir-lista" style="display: block;">
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Título</th>
-                                <th class="text-center">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Harry Potter ea Pedra Filosofal</td>
-                                <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" title="Informações">
-                                        <i class="icon-info"></i>
-                                    </button>
-                                    <button class="btn btn-info btn-sm" title="Editar">
-                                        <i class="icon-new-file"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm" title="Excluir">
-                                        <i class="icon-close"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Como eu era antes de você</td>
-                                <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" title="Informações">
-                                        <i class="icon-info"></i>
-                                    </button>
-                                    <button class="btn btn-info btn-sm" title="Editar">
-                                        <i class="icon-new-file"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm" title="Excluir">
-                                        <i class="icon-close"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Os pinguins de Madagascar</td>
-                                <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" title="Informações">
-                                        <i class="icon-info"></i>
-                                    </button>
-                                    <button class="btn btn-info btn-sm" title="Editar">
-                                        <i class="icon-new-file"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm" title="Excluir">
-                                        <i class="icon-close"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="exibir-grid" style="display: none;">
+            <div id="exibir-grid">
                 <div class="row mb-4">
                     <div class="cartaz">
                         <header>
@@ -92,17 +34,11 @@
                             <img src="img/capas/hp_pedra_filosofal.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -115,17 +51,11 @@
                             <img src="img/capas/ceeadv.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -138,17 +68,11 @@
                             <img src="img/capas/opdm.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -161,17 +85,11 @@
                             <img src="img/capas/hp_pedra_filosofal.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -184,17 +102,11 @@
                             <img src="img/capas/ceeadv.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -207,19 +119,57 @@
                             <img src="img/capas/opdm.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            Harry Potter e a Pedra Filosofal
+                        </header>
+                        <section>
+                            <img src="img/capas/hp_pedra_filosofal.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            Como eu era antes de você
+                        </header>
+                        <section>
+                            <img src="img/capas/ceeadv.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="row paginacao">
+                    <div class="links">
+                        <a href="#"><i class="fas fa-angle-left"></i></a>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><i class="fas fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>

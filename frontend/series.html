@@ -4,8 +4,7 @@
         <h2 class="h5 no-margin-bottom">
             Séries
 
-            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarSerie"
-                style="margin-top: -10px;">
+            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarSerie" style="margin-top: -10px;">
                 Adicionar
             </button>
         </h2>
@@ -17,72 +16,12 @@
         <div class="block margin-bottom-sm">
             <div class="title">
                 <strong>Catálogo</strong>
-                <div class="float-right icone_exibicao" onclick="mudarExibicao('grid')">
-                    <i class="icon-grid"></i>
+                <div class="float-right">
+                    <input type="text" class="form-control" id="pesquisar" placeholder="Pesquisar">
                 </div>
             </div>
             <br>
-            <div id="exibir-lista" style="display: block;">
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Título</th>
-                                <th class="text-center">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>The Vampire Diaries</td>
-                                <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" title="Informações">
-                                        <i class="icon-info"></i>
-                                    </button>
-                                    <button class="btn btn-info btn-sm" title="Editar">
-                                        <i class="icon-new-file"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm" title="Excluir">
-                                        <i class="icon-close"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>How I Meet Your Mother</td>
-                                <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" title="Informações">
-                                        <i class="icon-info"></i>
-                                    </button>
-                                    <button class="btn btn-info btn-sm" title="Editar">
-                                        <i class="icon-new-file"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm" title="Excluir">
-                                        <i class="icon-close"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Friends</td>
-                                <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" title="Informações">
-                                        <i class="icon-info"></i>
-                                    </button>
-                                    <button class="btn btn-info btn-sm" title="Editar">
-                                        <i class="icon-new-file"></i>
-                                    </button>
-                                    <button class="btn btn-danger btn-sm" title="Excluir">
-                                        <i class="icon-close"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="exibir-grid" style="display: none;">
+            <div>
                 <div class="row mb-4">
                     <div class="cartaz">
                         <header>
@@ -92,17 +31,11 @@
                             <img src="img/capas/tvd.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -115,17 +48,11 @@
                             <img src="img/capas/himym.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -138,17 +65,11 @@
                             <img src="img/capas/friends.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -161,17 +82,11 @@
                             <img src="img/capas/tvd.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -184,17 +99,11 @@
                             <img src="img/capas/himym.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
                     </div>
@@ -207,19 +116,57 @@
                             <img src="img/capas/friends.jpg">
                         </section>
                         <footer>
-                            <button class="btn btn-warning" title="Informações">
-                                <i class="icon-info"></i>
-                            </button>
-                            <button class="btn btn-success" title="Torrent">
-                                <i class="icon-flow-branch"></i>
-                            </button>
                             <button class="btn btn-info" title="Editar">
-                                <i class="icon-new-file"></i>
+                                <i class="fas fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" title="Excluir">
-                                <i class="icon-close"></i>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            The Vampire Diaries
+                        </header>
+                        <section>
+                            <img src="img/capas/tvd.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </footer>
+                    </div>
+
+                    <div class="cartaz">
+                        <header>
+                            How I Meet Your Mother
+                        </header>
+                        <section>
+                            <img src="img/capas/himym.jpg">
+                        </section>
+                        <footer>
+                            <button class="btn btn-info" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-primary" title="Excluir">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="row paginacao">
+                    <div class="links">
+                        <a href="#"><i class="fas fa-angle-left"></i></a>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><i class="fas fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
