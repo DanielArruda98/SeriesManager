@@ -1,11 +1,10 @@
 /* your styles go here */
-
-.icone_exibicao i {
-    font-size: 30px;
-}
-
-.icone_exibicao:hover {
-    color: white;
+.icone-classificar {
+    background-color:#aa1d22; 
+    color: white; 
+    font-size: 20px; 
+    border-radius: 2px;
+    padding-top: 10px;
 }
 
 .cartaz {

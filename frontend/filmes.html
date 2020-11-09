@@ -19,7 +19,7 @@
                 <div class="float-right">
                     <div class="row">
                         <input type="text" class="form-control col-9 mr-3" id="pesquisar" placeholder="Pesquisar">
-                        <i class="fas fa-sort-amount-up col-2 pt-2 align-middle text-center" style="background-color:#aa1d22; color: white; font-size: 20px; border-radius: 2px;"></i>
+                        <i class="fas fa-sort-amount-up icone-classificar col-2"></i>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         <header>
                             Harry Potter e a Pedra Filosofal
                         </header>
-                        <section>
+                        <section data-toggle="modal" data-target="#detalhesFilme">
                             <img src="img/capas/hp_pedra_filosofal.jpg">
                         </section>
                         <footer>
@@ -47,7 +47,7 @@
                         <header>
                             Como eu era antes de você
                         </header>
-                        <section>
+                        <section data-toggle="modal" data-target="#detalhesFilme">
                             <img src="img/capas/ceeadv.jpg">
                         </section>
                         <footer>
@@ -64,7 +64,7 @@
                         <header>
                             Os pinguins de Madagascar
                         </header>
-                        <section>
+                        <section data-toggle="modal" data-target="#detalhesFilme">
                             <img src="img/capas/opdm.jpg">
                         </section>
                         <footer>
@@ -81,7 +81,7 @@
                         <header>
                             Harry Potter e a Pedra Filosofal
                         </header>
-                        <section>
+                        <section data-toggle="modal" data-target="#detalhesFilme">
                             <img src="img/capas/hp_pedra_filosofal.jpg">
                         </section>
                         <footer>
@@ -98,7 +98,7 @@
                         <header>
                             Como eu era antes de você
                         </header>
-                        <section>
+                        <section data-toggle="modal" data-target="#detalhesFilme">
                             <img src="img/capas/ceeadv.jpg">
                         </section>
                         <footer>
@@ -115,7 +115,7 @@
                         <header>
                             Os pinguins de Madagascar
                         </header>
-                        <section>
+                        <section data-toggle="modal" data-target="#detalhesFilme">
                             <img src="img/capas/opdm.jpg">
                         </section>
                         <footer>
@@ -132,7 +132,7 @@
                         <header>
                             Harry Potter e a Pedra Filosofal
                         </header>
-                        <section>
+                        <section data-toggle="modal" data-target="#detalhesFilme">
                             <img src="img/capas/hp_pedra_filosofal.jpg">
                         </section>
                         <footer>
@@ -149,7 +149,7 @@
                         <header>
                             Como eu era antes de você
                         </header>
-                        <section>
+                        <section data-toggle="modal" data-target="#detalhesFilme">
                             <img src="img/capas/ceeadv.jpg">
                         </section>
                         <footer>
@@ -193,17 +193,69 @@
                     <label for="titulo">Título</label>
                     <input type="text" class="form-control" id="titulo">
                 </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="ano_lancamento">Ano</label>
+                        <input type="text" class="form-control" id="ano_lancamento">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="duracao">Duração (Minutos)</label>
+                        <input type="text" class="form-control" id="duracao">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Gênero</label>
+                    <input type="text" class="form-control" id="genero">
+                </div>
                 <div class="form-group">
                     <label for="torrent">Link Torrent</label>
                     <input type="text" class="form-control" id="torrent">
                 </div>
-                <div>
+                <div  class="form-group">
                     <label for="capa_filme">Capa do Filme</label>
                     <input type="text" class="form-control" id="capa_filme">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Visualizar Informações -->
+<div class="modal fade" id="detalhesFilme" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detalhes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo" disabled placeholder="Harry Potter e a Pedra Filosofal">
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="ano_lancamento">Ano</label>
+                        <input type="text" class="form-control" id="ano_lancamento" disabled placeholder="2020">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="duracao">Duração (Minutos)</label>
+                        <input type="text" class="form-control" id="duracao" disabled placeholder="130 minutos">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Gênero</label>
+                    <input type="text" class="form-control" id="genero" disabled placeholder="Aventura Ficção">
+                </div>
+                <div class="form-group">
+                    <label for="torrent">Link Torrent</label>
+                    <input type="text" class="form-control" id="torrent" disabled placeholder="djkasjfdkjhasfkjhajkfhsja.torret.com">
+                </div>
             </div>
         </div>
     </div>
