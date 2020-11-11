@@ -1,0 +1,135 @@
+<!-- Page Header-->
+<div class="page-header no-margin-bottom">
+    <div class="container-fluid">
+        <h2 class="h5 no-margin-bottom">
+            Filmes
+
+            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarFilme" style="margin-top: -10px;">
+                Adicionar
+            </button>
+        </h2>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="col-sm-12 col-md-12 col-lg-12" style="margin: 0 auto;">
+        <div class="block margin-bottom-sm">
+            <div class="title">
+                <strong>Catálogo</strong>
+                <div class="float-right">
+                    <div class="row">
+                        <input type="text" class="form-control col-9 mr-3" id="pesquisar" placeholder="Pesquisar">
+                        <i class="fas fa-sort-amount-up icone-classificar col-2"></i>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div id="exibir-grid">
+                <div class="row mb-4" id="catalogo_filmes">
+                    
+                </div>
+
+                <!-- <div class="row paginacao">
+                    <div class="links">
+                        <a href="#"><i class="fas fa-angle-left"></i></a>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modais -->
+<div class="modal fade" id="cadastrarFilme" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Filme</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="vasco">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo">
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="ano_lancamento">Ano</label>
+                        <input type="text" class="form-control" id="ano_lancamento">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="duracao">Duração (Minutos)</label>
+                        <input type="text" class="form-control" id="duracao">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Gênero</label>
+                    <input type="text" class="form-control" id="genero">
+                </div>
+                <div class="form-group">
+                    <label for="torrent">Link Torrent</label>
+                    <input type="text" class="form-control" id="torrent">
+                </div>
+                <div  class="form-group">
+                    <label for="capa_filme">Capa do Filme</label>
+                    <input type="text" class="form-control" id="capa_filme">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-cadastrar_filme">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Visualizar Informações -->
+<div class="modal fade" id="detalhesFilme" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detalhes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="view_titulo">Título</label>
+                    <input type="text" class="form-control" id="view_titulo" disabled placeholder="Harry Potter e a Pedra Filosofal">
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="view_ano_lancamento">Ano</label>
+                        <input type="text" class="form-control" id="view_ano_lancamento" disabled placeholder="2020">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="view_duracao">Duração (Minutos)</label>
+                        <input type="text" class="form-control" id="view_duracao" disabled placeholder="130 minutos">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="view_genero">Gênero</label>
+                    <input type="text" class="form-control" id="view_genero" disabled placeholder="Aventura Ficção">
+                </div>
+                <div class="form-group">
+                    <label for="view_torrent">Link Torrent</label>
+                    <input type="text" class="form-control" id="view_torrent" disabled placeholder="djkasjfdkjhasfkjhajkfhsja.torret.com">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CRUD -->
+<script src="frontend/js/crud/create/filmes.js"></script>
+<script src="frontend/js/crud/read/filmes.js"></script>
+
+<!-- JS -->
+<script src="frontend/js/elementos/filmes.js"></script>

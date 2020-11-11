@@ -1,13 +1,10 @@
-const state = {'page_id' : 0, 'user_id' : 0};
-const title = '';
-
 function redirect(event, linha, page, title) {
     
     if(event != null) 
         event.preventDefault();
 
     document.title = title;
-    $("#window-view").load("frontend/"+page);
+    $("#window-view").load("frontend/pages/"+page);
     selecionarLink(linha);
 }
 
@@ -25,8 +22,6 @@ function startPagina(event = null) {
 
 ////////////////////////////////////////////////////////////////////////////////////////
 startPagina();
-
-/////////////////////////////////////////////////////////////////////////////////////////
 
 $('.link_home').click(function(event) {
     startPagina(event);
