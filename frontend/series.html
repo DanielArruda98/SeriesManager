@@ -17,7 +17,10 @@
             <div class="title">
                 <strong>Catálogo</strong>
                 <div class="float-right">
-                    <input type="text" class="form-control" id="pesquisar" placeholder="Pesquisar">
+                    <div class="row">
+                        <input type="text" class="form-control col-9 mr-3" id="pesquisar" placeholder="Pesquisar">
+                        <i class="fas fa-sort-amount-up icone-classificar col-2"></i>
+                    </div>
                 </div>
             </div>
             <br>
@@ -34,6 +37,9 @@
                             <button class="btn btn-info" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#cadastrarTemporada" title="Adicionar Temporada">
+                                <i class="fas fa-plus"></i>
+                            </button>
                             <button class="btn btn-primary" title="Excluir">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
@@ -50,6 +56,9 @@
                         <footer>
                             <button class="btn btn-info" title="Editar">
                                 <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#cadastrarTemporada" title="Adicionar Temporada">
+                                <i class="fas fa-plus"></i>
                             </button>
                             <button class="btn btn-primary" title="Excluir">
                                 <i class="fas fa-trash-alt"></i>
@@ -68,6 +77,9 @@
                             <button class="btn btn-info" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#cadastrarTemporada" title="Adicionar Temporada">
+                                <i class="fas fa-plus"></i>
+                            </button>
                             <button class="btn btn-primary" title="Excluir">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
@@ -85,6 +97,9 @@
                             <button class="btn btn-info" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#cadastrarTemporada" title="Adicionar Temporada">
+                                <i class="fas fa-plus"></i>
+                            </button>
                             <button class="btn btn-primary" title="Excluir">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
@@ -101,6 +116,9 @@
                         <footer>
                             <button class="btn btn-info" title="Editar">
                                 <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#cadastrarTemporada" title="Adicionar Temporada">
+                                <i class="fas fa-plus"></i>
                             </button>
                             <button class="btn btn-primary" title="Excluir">
                                 <i class="fas fa-trash-alt"></i>
@@ -119,6 +137,9 @@
                             <button class="btn btn-info" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#cadastrarTemporada" title="Adicionar Temporada">
+                                <i class="fas fa-plus"></i>
+                            </button>
                             <button class="btn btn-primary" title="Excluir">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
@@ -136,6 +157,9 @@
                             <button class="btn btn-info" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#cadastrarTemporada" title="Adicionar Temporada">
+                                <i class="fas fa-plus"></i>
+                            </button>
                             <button class="btn btn-primary" title="Excluir">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
@@ -152,6 +176,9 @@
                         <footer>
                             <button class="btn btn-info" title="Editar">
                                 <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#cadastrarTemporada" title="Adicionar Temporada">
+                                <i class="fas fa-plus"></i>
                             </button>
                             <button class="btn btn-primary" title="Excluir">
                                 <i class="fas fa-trash-alt"></i>
@@ -175,6 +202,8 @@
 </div>
 
 <!-- Modais -->
+
+<!-- Cadastrar Série -->
 <div class="modal fade" id="cadastrarSerie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -191,16 +220,51 @@
                     <input type="text" class="form-control" id="titulo">
                 </div>
                 <div class="form-group">
+                    <label for="genero">Gênero</label>
+                    <input type="text" class="form-control" id="genero">
+                </div>
+                <div class="form-group">
+                    <label for="duracao">Duração (Minutos)</label>
+                    <input type="text" class="form-control" id="duracao">
+                </div>
+                <div class="form-group">
+                    <label for="capa_filme">Capa da Série</label>
+                    <input type="text" class="form-control" id="capa_filme">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cadastrar Temporada -->
+<div class="modal fade" id="cadastrarTemporada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Temporada</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo" disabled value="How I Met Your Mother">
+                </div>
+                <div class="form-group">
                     <label for="temporada">Temporada</label>
                     <input type="text" class="form-control" id="temporada">
                 </div>
                 <div class="form-group">
+                    <label for="ano_lancamento">Ano</label>
+                    <input type="text" class="form-control" id="ano_lancamento">
+                </div>
+                <div class="form-group">
                     <label for="torrent">Link Torrent</label>
                     <input type="text" class="form-control" id="torrent">
-                </div>
-                <div>
-                    <label for="capa_filme">Capa do Filme</label>
-                    <input type="text" class="form-control" id="capa_filme">
                 </div>
             </div>
             <div class="modal-footer">
