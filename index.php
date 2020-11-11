@@ -1,3 +1,3 @@
 <?php
-    header("Location: /frontend/");
+    include "frontend/index.html";
 ?>
