@@ -1,4 +1,4 @@
-const api_sm = "http://localhost/SeriesManager/backend/Controllers/ControllerFilme.php";
+const api_sm = "http://api-seriesmanager.000webhostapp.com/controllers/ControllerFilme.php";
 
 $('#btn-cadastrar_filme').click(function () {
 
