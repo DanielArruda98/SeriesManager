@@ -46,25 +46,6 @@
     margin: 0 auto;
 }
 
-.paginacao a {
-    font-family: "Muli", sans-serif;
-    font-weight: bold;
-    text-align: center;
-    background-color: #aa1d22;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    margin: 0px 1px;
-    padding-top: 7px;
-    text-decoration: none;
-    transition: 1s;
-}
-
-.paginacao a:hover {
-    background-color: rgb(12, 12, 12);
-}
-
 @media(max-width: 1050px) {
     #exibir-grid {
         width: 95%;

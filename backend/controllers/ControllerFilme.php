@@ -18,7 +18,13 @@
     }
 
     if(isset($_GET['listar'])) {
-        echo json_encode($filmes->listar());
+        $busca = isset($_GET['busca']) ? $_GET['busca'] : null;
+        $pagina = $_GET['pagina'];
+        $qtd_resultados = $_GET['qtd_resultados'];
+
+        $inicio = ($pagina * $qtd_resultados) - $qtd_resultados;
+
+        echo json_encode($filmes->listar($busca, $inicio, $qtd_resultados));
     }
 
 ?>
