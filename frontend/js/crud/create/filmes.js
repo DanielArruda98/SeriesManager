@@ -1,4 +1,5 @@
-const api_sm = "http://api-seriesmanager.000webhostapp.com/controllers/ControllerFilme.php";
+api_sm = "http://api-seriesmanager.000webhostapp.com/controllers/ControllerFilme.php";
+// api_sm = "http://localhost/SeriesManager/backend/controllers/ControllerFilme.php";
 
 $('#btn-cadastrar_filme').click(function () {
 
@@ -23,6 +24,8 @@ $('#btn-cadastrar_filme').click(function () {
             type: retorno.tipo,
             closeTimeout: 3000
         });
+
+        listar(pagina, qtd_resultados);
 
         $('#cadastrarFilme').modal('hide');
 

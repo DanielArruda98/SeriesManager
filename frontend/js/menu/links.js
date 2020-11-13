@@ -27,6 +27,11 @@ $('.link_home').click(function(event) {
     startPagina(event);
 });
 
+$('.link_generos').click(function(event) {
+    redirect(event, this, "generos.html", "Series Manager: Gêneros");
+    // window.history.pushState({}, null, 'generos');
+});
+
 $('.link_filmes').click(function(event) {
     redirect(event, this, "filmes.html", "Series Manager: Filmes");
     // window.history.pushState({}, null, 'filmes');

@@ -6,6 +6,39 @@
 
         /*======================================================================================*/
 
+        public function cadastrar($genero) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+                $sql = "INSERT INTO generos 
+                        VALUES (null, :genero)";
+
+                $consulta = $connection->prepare($sql);
+
+                $consulta->bindValue(":genero", $genero);
+
+                if ($consulta->execute()) {
+                    return [
+                        'titulo' => 'Gênero cadastrado com sucesso!', 
+                        'tipo' => 'success'
+                    ];
+                } else {
+                    return [
+                        'titulo' => 'Erro ao cadastrar o gênero',
+                        'tipo' => 'danger'
+                    ];
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar gênero: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+        /*======================================================================================*/
+
         public function listar($id_genero = 0) {
             $conexao = new Conexao();
             $connection = $conexao->conectar();
@@ -14,7 +47,9 @@
 
                 $condicao = $id_genero == 0 ? ">" : "=";
 
-                $sql = "SELECT * FROM generos WHERE id $condicao :id_genero;";
+                $sql = "SELECT * FROM generos 
+                        WHERE id $condicao :id_genero
+                        ORDER BY descricao;";
 
                 $consulta = $connection->prepare($sql);
                 
@@ -33,6 +68,39 @@
                     }
                 } else {
                     return ['erro' => 'Erro ao consultar os filmes'];
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar filme: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+         /*======================================================================================*/
+
+         public function consultar($genero) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+
+                $sql = "SELECT * FROM generos 
+                        WHERE descricao = :genero;";
+
+                $consulta = $connection->prepare($sql);
+                
+                $consulta->bindValue(":genero", $genero);
+
+                if($consulta->execute()) {
+
+                    $cont = $consulta->rowCount();
+
+                    if ($cont > 0) {
+                        $generos = $consulta->fetchAll();
+                        
+                        return $generos;
+                    }
                 }
 
             } catch (PDOException $e) {
