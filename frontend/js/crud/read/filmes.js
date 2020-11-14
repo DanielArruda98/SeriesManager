@@ -18,7 +18,8 @@ function listar(pagina, qtd_resultados) {
         var cartazes = "";
 
         $.each(retorno['catalogo'], function(idx, value) {
-            cartazes += cartazFilme(value.id_filme, value.titulo, 'opdm.jpg');
+            var capa = (value.capa).replace('file/d/', 'uc?id=').replace('/view?usp=sharing', '');
+            cartazes += cartazFilme(value.id_filme, value.titulo, capa);
         });
 
         $('#catalogo_filmes').html(cartazes);

@@ -5,7 +5,7 @@ function cartazFilme(id, titulo, img) {
                 ${titulo}
             </header>
             <section style="cursor: pointer;" onclick="detalhesFilme(${id})">
-                <img src="https://docs.google.com/uc?id=1HPq3rBhVcW5H9Xufu804UEiiG8EGBxNj">
+                <img src="${img}">
             </section>
             <footer>
                 <button class="btn btn-info" title="Editar" onclick="editarFilme(${id})">
