@@ -1,5 +1,5 @@
-api_sm = "https://api-seriesmanager.000webhostapp.com/controllers/ControllerGenero.php";
-// api_sm = "http://localhost/SeriesManager/backend/controllers/ControllerGenero.php";
+// api_sm = "https://api-seriesmanager.000webhostapp.com/controllers/ControllerGenero.php";
+api_sm = "http://localhost/SeriesManager/backend/controllers/ControllerGenero.php";
 
 $('#btn-cadastrar_genero').click(function () {
 

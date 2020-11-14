@@ -1,12 +1,11 @@
 function cartazFilme(id, titulo, img) {
-
-    var cartaz = `
+    return `
         <div class="cartaz">
             <header>
                 ${titulo}
             </header>
-            <section data-toggle="modal" data-target="#detalhesFilme">
-                <img src="frontend/img/capas/filmes/${img}">
+            <section style="cursor: pointer;" onclick="detalhesFilme(${id})">
+                <img src="https://docs.google.com/uc?id=1HPq3rBhVcW5H9Xufu804UEiiG8EGBxNj">
             </section>
             <footer>
                 <button class="btn btn-info" title="Editar" onclick="editarFilme(${id})">
@@ -18,6 +17,16 @@ function cartazFilme(id, titulo, img) {
             </footer>
         </div>
     `;
+}
 
-    return cartaz;
+function listarGenerosSelect(id, genero) {
+    return `
+        <option value="${id}">${genero}</option>
+    `;
+}
+
+function listarGenerosEscolhidos(id, genero) {
+    return `
+        <span onclick='removerGenero(${id})' id='option_genero_esc_${id}'>${genero}</span>
+    `;
 }

@@ -25,7 +25,8 @@
                 if ($consulta->execute()) {
                     return [
                         'titulo' => 'Filme cadastrado com sucesso!', 
-                        'tipo' => 'success'
+                        'tipo' => 'success',
+                        'id' => $connection->lastInsertId()
                     ];
                 } else {
                     return [
@@ -98,6 +99,52 @@
                             'catalogo' => $retorno,
                             'qtd_paginas' => $qtd_paginas
                         ];
+                    }
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar filme: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+        /*======================================================================================*/
+
+        public function consultar($id_filme) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+
+                $sql = "SELECT filmes.*, generos.descricao AS genero FROM filmes
+                        LEFT JOIN generos_filmes ON fk_filme = filmes.id
+                        LEFT JOIN generos ON fk_genero = generos.id
+                        WHERE filmes.id = :id_filme";
+
+                $consulta = $connection->prepare($sql);
+                
+                $consulta->bindValue(":id_filme", $id_filme);
+
+                if($consulta->execute()) {
+
+                    $cont = $consulta->rowCount();
+
+                    if ($cont > 0) {
+                        $dados = $consulta->fetchAll();
+                        $i = 0;
+
+                        foreach($dados as $dado) {
+                            $retorno['id_filme'] = $dado['id'];
+                            $retorno['titulo'] = $dado['titulo'];
+                            $retorno['ano'] = $dado['ano'];
+                            $retorno['duracao'] = $dado['duracao'];
+                            $retorno['torrent'] = $dado['torrent'];
+                            $retorno['capa'] = $dado['capa'];
+                            $retorno['genero'][] = $dado['genero'];
+                        }
+
+                        return $retorno;
                     }
                 }
 

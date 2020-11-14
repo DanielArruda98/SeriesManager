@@ -1,5 +1,5 @@
 var pagina = 1;
-var qtd_resultados = 4;
+var qtd_resultados = 8;
 
 listar(pagina, qtd_resultados);
 
@@ -13,8 +13,8 @@ function listar(pagina, qtd_resultados) {
         pagina,
         qtd_resultados
     }
-
-    $.get(api_sm, dados, function (retorno) {  
+    
+    $.get(getApi('Filme'), dados, function (retorno) {  
         var cartazes = "";
 
         $.each(retorno['catalogo'], function(idx, value) {
@@ -27,6 +27,7 @@ function listar(pagina, qtd_resultados) {
     });
 }
 
+// Paginação
 $('#pesquisar').keyup(function() {
     listar(pagina, qtd_resultados);
 });
@@ -34,4 +35,31 @@ $('#pesquisar').keyup(function() {
 function gerarPaginacao(qtd_paginas) {
     var paginacao = linksPaginacao(qtd_paginas);
     $('#paginacao').html(paginacao);
+} 
+
+// Visualizar informações do filme
+function detalhesFilme(id) {
+
+    var dados = {
+        consultar : true,
+        id_filme : id
+    }
+
+    $.get(getApi('Filme'), dados, function(retorno) {
+        generos = "";
+
+        $.each(retorno.genero, function(idx, value) {
+            if(value != null) {
+                generos += value+". ";
+            }
+        });
+
+        $('#view_titulo').val(retorno.titulo);
+        $('#view_ano_lancamento').val(retorno.ano);
+        $('#view_duracao').val(retorno.duracao);
+        $('#view_torrent').val(retorno.torrent);
+        $('#view_genero').val(generos);
+
+        $('#detalhesFilme').modal('show');
+    });   
 }

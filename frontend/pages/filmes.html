@@ -4,7 +4,7 @@
         <h2 class="h5 no-margin-bottom">
             Filmes
 
-            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarFilme" style="margin-top: -10px;">
+            <button class="btn btn-primary float-right" style="margin-top: -10px;" onclick="cadastrarFilme()">
                 Adicionar
             </button>
         </h2>
@@ -26,7 +26,7 @@
             <br>
             <div id="exibir-grid">
                 <div class="row mb-4" id="catalogo_filmes">
-                    
+
                 </div>
 
                 <div class="row paginacao">
@@ -66,16 +66,35 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="genero">Gênero</label>
-                    <input type="text" class="form-control" id="genero">
-                </div>
-                <div class="form-group">
                     <label for="torrent">Link Torrent</label>
                     <input type="text" class="form-control" id="torrent">
                 </div>
-                <div  class="form-group">
+                <div class="form-group">
                     <label for="capa_filme">Capa do Filme</label>
                     <input type="text" class="form-control" id="capa_filme">
+                </div>
+                <div class="form-group">
+                    <div class="row form-group col-12">
+                        Gêneros
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-10">
+                            <select class="form-control select-custom" id="listagem_generos">
+                                <option selected disabled value="0">Generos</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-2" style="padding: 0px;">
+                            <button class="btn btn-primary" id="btn-cadastrar_genero_filme" style="width: 80%;">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <div class="tags-filmes" id="tags-filmes">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -86,7 +105,8 @@
 </div>
 
 <!-- Visualizar Informações -->
-<div class="modal fade" id="detalhesFilme" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="detalhesFilme" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -98,25 +118,25 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="view_titulo">Título</label>
-                    <input type="text" class="form-control" id="view_titulo" disabled placeholder="Harry Potter e a Pedra Filosofal">
+                    <input type="text" class="form-control" id="view_titulo" disabled>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <label for="view_ano_lancamento">Ano</label>
-                        <input type="text" class="form-control" id="view_ano_lancamento" disabled placeholder="2020">
+                        <input type="text" class="form-control" id="view_ano_lancamento" disabled>
                     </div>
                     <div class="form-group col-lg-6">
                         <label for="view_duracao">Duração (Minutos)</label>
-                        <input type="text" class="form-control" id="view_duracao" disabled placeholder="130 minutos">
+                        <input type="text" class="form-control" id="view_duracao" disabled>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="view_genero">Gênero</label>
-                    <input type="text" class="form-control" id="view_genero" disabled placeholder="Aventura Ficção">
+                    <label for="view_torrent">Link Torrent</label>
+                    <input type="text" class="form-control" id="view_torrent" disabled>
                 </div>
                 <div class="form-group">
-                    <label for="view_torrent">Link Torrent</label>
-                    <input type="text" class="form-control" id="view_torrent" disabled placeholder="djkasjfdkjhasfkjhajkfhsja.torret.com">
+                    <label for="view_genero">Gênero</label>
+                    <input type="text" class="form-control" id="view_genero" disabled>
                 </div>
             </div>
         </div>
