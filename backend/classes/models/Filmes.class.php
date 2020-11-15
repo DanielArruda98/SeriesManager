@@ -44,11 +44,19 @@
 
         /*======================================================================================*/
 
-        public function listar($busca, $inicio, $qtd_resultados) {
+        public function listar($busca, $inicio, $qtd_resultados, $ordem) {
             $conexao = new Conexao();
             $connection = $conexao->conectar();
 
             try {
+                $ordem_array = [
+                    'alfabetica' => "", 
+                    'recente' => "filmes.ano DESC,", 
+                    'antigo' => "filmes.ano ASC,"
+                ];
+                
+                $ordem_esc = $ordem_array[$ordem];
+
                 $filtro = "";
 
                 if($busca != null) {
@@ -57,7 +65,7 @@
 
                 $sql = "SELECT * FROM filmes
                         $filtro
-                        ORDER BY filmes.titulo
+                        ORDER BY $ordem_esc filmes.titulo ASC
                         LIMIT $inicio, $qtd_resultados";
 
                 $consulta = $connection->prepare($sql);
@@ -228,5 +236,3 @@
         /*======================================================================================*/
 
     }
-
-?>

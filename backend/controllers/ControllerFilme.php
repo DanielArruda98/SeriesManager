@@ -33,10 +33,11 @@
         $busca = isset($_GET['busca']) ? $_GET['busca'] : null;
         $pagina = $_GET['pagina'];
         $qtd_resultados = $_GET['qtd_resultados'];
+        $ordem = $_GET['ordem'];
 
         $inicio = ($pagina * $qtd_resultados) - $qtd_resultados;
 
-        echo json_encode($filmes->listar($busca, $inicio, $qtd_resultados));
+        echo json_encode($filmes->listar($busca, $inicio, $qtd_resultados, $ordem));
     }
 
     if(isset($_GET['consultar'])) {
