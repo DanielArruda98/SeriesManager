@@ -4,7 +4,7 @@ function cartazFilme(id, titulo, img) {
             <header>
                 ${titulo}
             </header>
-            <section style="cursor: pointer;" onclick="detalhesFilme(${id})">
+            <section style="cursor: pointer; height: 250px" onclick="detalhesFilme(${id})">
                 <img src="${img}">
             </section>
             <footer>

@@ -6,7 +6,7 @@ function listar() {
         listar: true
     }
 
-    $.get(api_sm, dados, function (retorno) {  
+    $.get(getApi('Genero'), dados, function (retorno) {  
         var lista = "";
         
         $.each(retorno, function(idx, value) {

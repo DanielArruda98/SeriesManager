@@ -1,9 +1,18 @@
 var pagina = 1;
-var qtd_resultados = 8;
+var qtd_resultados = 4;
+var ordem = 'alfabetica';
 
-listar(pagina, qtd_resultados);
+listar();
 
-function listar(pagina, qtd_resultados) {
+function setListar(set_pagina = null, set_qtd_resultados = null, set_ordem = null) {
+    pagina = set_pagina != null ? set_pagina : pagina; 
+    qtd_resultados = set_qtd_resultados != null ? set_qtd_resultados : qtd_resultados; 
+    ordem = set_ordem != null ? set_ordem : ordem; 
+
+    listar();
+}
+
+function listar() {
 
     busca = $('#pesquisar').val();
 
@@ -11,7 +20,8 @@ function listar(pagina, qtd_resultados) {
         listar: true,
         busca,
         pagina,
-        qtd_resultados
+        qtd_resultados,
+        ordem
     }
     
     $.get(getApi('Filme'), dados, function (retorno) {  
@@ -27,16 +37,6 @@ function listar(pagina, qtd_resultados) {
         gerarPaginacao(retorno['qtd_paginas']);
     });
 }
-
-// Paginação
-$('#pesquisar').keyup(function() {
-    listar(pagina, qtd_resultados);
-});
-
-function gerarPaginacao(qtd_paginas) {
-    var paginacao = linksPaginacao(qtd_paginas);
-    $('#paginacao').html(paginacao);
-} 
 
 // Visualizar informações do filme
 function detalhesFilme(id) {
@@ -63,4 +63,29 @@ function detalhesFilme(id) {
 
         $('#detalhesFilme').modal('show');
     });   
+}
+
+function listarOptionsGenero() {
+    var dados = {
+        listar
+    };
+
+    $.get(getApi('Genero'), dados, function (retorno) {
+
+        options = listarGenerosSelect(0, "Generos");
+
+        $.each(retorno, function (idx, value) {
+            var i = 0;
+
+            $.each(generos_filmes, function (idx_select, value_select) {
+                if (value.id == value_select[0])
+                    i++;
+            });
+
+            if (i == 0)
+                options += listarGenerosSelect(value.id, value.descricao);
+        })
+
+        $('#listagem_generos').html(options);
+    });
 }

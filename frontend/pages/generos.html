@@ -1,83 +1,86 @@
-    <!-- Page Header-->
-    <div class="page-header no-margin-bottom">
-        <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">
-                Gêneros
+<!-- Page Header-->
+<div class="page-header no-margin-bottom">
+    <div class="container-fluid">
+        <h2 class="h5 no-margin-bottom">
+            Gêneros
 
-                <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarGenero"
-                    style="margin-top: -10px;">
-                    Adicionar
+            <button class="btn btn-primary float-right" data-toggle="modal" data-target="#cadastrarGenero"
+                style="margin-top: -10px;">
+                <i class="fas fa-plus"></i> Adicionar
+            </button>
+        </h2>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="col-sm-12 col-md-12 col-lg-7" style="margin: 0 auto;">
+        <div class="block margin-bottom-sm">
+            <div class="title">
+                <!-- <strong>Gêneros</strong> -->
+                <div class="float-right">
+                    <div class="row">
+                        <input type="text" class="form-control col-9 mr-3" id="pesquisar" placeholder="Pesquisar">
+                        <i class="fas fa-sort-amount-up icone-classificar col-2"></i>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div id="exibir-grid">
+                <div class="row mb-4" id="lista_generos">
+                    <table class="table table-striped col-lg-11 mt-3" style="margin: 0 auto;">
+                        <thead style="background-color: rgba(0, 0, 0, 0.350);">
+                            <tr>
+                                <!-- <th scope="col">#</th> -->
+                                <th scope="col">Gêneros</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_generos">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row paginacao">
+                    <div class="links" id="paginacao">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modais -->
+<div class="modal fade" id="cadastrarGenero" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Gênero</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
                 </button>
-            </h2>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="col-sm-12 col-md-12 col-lg-7" style="margin: 0 auto;">
-            <div class="block margin-bottom-sm">
-                <div class="title">
-                    <!-- <strong>Gêneros</strong> -->
-                    <div class="float-right">
-                        <div class="row">
-                            <input type="text" class="form-control col-9 mr-3" id="pesquisar" placeholder="Pesquisar">
-                            <i class="fas fa-sort-amount-up icone-classificar col-2"></i>
-                        </div>
-                    </div>
+            </div>
+            <div class="modal-body" id="vasco">
+                <div class="form-group">
+                    <label for="genero">Gênero</label>
+                    <input type="text" class="form-control" id="genero">
                 </div>
-                <br>
-                <div id="exibir-grid">
-                    <div class="row mb-4" id="lista_generos">
-                        <table class="table table-striped col-lg-11 mt-3" style="margin: 0 auto;">
-                            <thead style="background-color: rgba(0, 0, 0, 0.350);">
-                                <tr>
-                                    <!-- <th scope="col">#</th> -->
-                                    <th scope="col">Gêneros</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbody_generos">
-                                
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="row paginacao">
-                        <div class="links" id="paginacao">
-
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-cadastrar_genero">Salvar</button>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Modais -->
-    <div class="modal fade" id="cadastrarGenero" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Cadastrar Gênero</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="vasco">
-                    <div class="form-group">
-                        <label for="genero">Gênero</label>
-                        <input type="text" class="form-control" id="genero">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btn-cadastrar_genero">Salvar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- Elementos -->
+<script src="frontend/js/elementos/generos.js"></script>
 
-    <!-- JS -->
-    <script src="frontend/js/elementos/generos.js"></script>
+<!-- Funções -->
+<script src="frontend/js/functions/gerais.js"></script>
 
-    <!-- CRUD -->
-    <script src="frontend/js/crud/create/generos.js"></script>
-    <script src="frontend/js/crud/read/generos.js"></script>
+<!-- CRUD -->
+<script src="frontend/js/crud/create/generos.js"></script>
+<script src="frontend/js/crud/read/generos.js"></script>

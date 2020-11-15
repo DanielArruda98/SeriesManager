@@ -4,7 +4,7 @@ function linksPaginacao(qtd_paginas) {
 
     for (var i = 0; i < qtd_paginas; i++) {
         retorno += `
-            <button onclick="listar(${i+1}, ${qtd_resultados})" class="btn btn-primary">
+            <button onclick="setListar(${i+1})" class="btn btn-primary">
                 ${i+1}
             </button>
         `;
