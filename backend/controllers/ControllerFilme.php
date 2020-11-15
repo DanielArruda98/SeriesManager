@@ -46,4 +46,11 @@
         echo json_encode($filmes->consultar($id_filme));
     }
 
+    if(isset($_POST['deletar'])) {
+        $id_filme = $_POST['id_filme'];
+
+        $retorno = $filmes->deletar($id_filme);
+        echo json_encode($retorno);
+    }
+
 ?>

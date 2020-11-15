@@ -235,4 +235,37 @@
 
         /*======================================================================================*/
 
+        public function deletar($id_filme) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+                $sql = "DELETE FROM filmes
+                        WHERE id = :id_filme";
+
+                $consulta = $connection->prepare($sql);
+
+                $consulta->bindValue(":id_filme", $id_filme);
+
+                if ($consulta->execute()) {
+                    return [
+                        'titulo' => 'Filme deletado com sucesso!', 
+                        'tipo' => 'success'
+                    ];
+                } else {
+                    return [
+                        'titulo' => 'Erro ao deletar filme',
+                        'tipo' => 'danger'
+                    ];
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar filme: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+        /*======================================================================================*/
+
     }

@@ -8,16 +8,19 @@ function cartazFilme(id, titulo, img) {
                 <img src="${img}">
             </section>
             <footer>
-                <button class="btn btn-info" title="Editar" onclick="editarFilme(${id})">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="btn btn-primary" title="Excluir" onclick="excluirFilme(${id})">
+                <button class="btn btn-primary" title="Excluir" onclick="deletarFilme(${id})">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </footer>
         </div>
     `;
 }
+
+/* 
+<button class="btn btn-info" title="Editar" onclick="editarFilme(${id})">
+    <i class="fas fa-edit"></i>
+</button> 
+*/
 
 function listarGenerosSelect(id, genero) {
     return `

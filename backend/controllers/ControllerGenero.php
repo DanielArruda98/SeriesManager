@@ -27,4 +27,10 @@
         echo json_encode($retorno);
     }
 
+    if(isset($_POST['deletar'])) {
+        $id_genero = $_POST['id_genero'];
+
+        $retorno = $generos->deletar($id_genero);
+        echo json_encode($retorno);
+    }
 ?>

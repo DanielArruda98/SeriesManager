@@ -112,6 +112,40 @@
 
         /*======================================================================================*/
 
+        public function deletar($id_genero) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+                $sql = "DELETE FROM generos
+                        WHERE id = :id_genero";
+
+                $consulta = $connection->prepare($sql);
+
+                $consulta->bindValue(":id_genero", $id_genero);
+
+                if ($consulta->execute()) {
+                    return [
+                        'titulo' => 'Gênero deletado com sucesso!', 
+                        'tipo' => 'success'
+                    ];
+                } else {
+                    return [
+                        'titulo' => 'Erro ao deletar gênero',
+                        'tipo' => 'danger'
+                    ];
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar filme: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+
+        /*======================================================================================*/
+
     }
 
 ?>
