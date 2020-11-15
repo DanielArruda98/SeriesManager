@@ -1,6 +1,6 @@
 // Link api
 function getApi(pagina) {
-    return `http://localhost/SeriesManager/backend/controllers/Controller${pagina}.php`;
+    return `http://api-seriesmanager.000webhostapp.com/backend/controllers/Controller${pagina}.php`;
 }
 
 // Modal Growl
