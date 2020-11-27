@@ -10,13 +10,22 @@ function removerGenero(id) {
 }
 
 function deletarFilme(id_filme) {
-    var dados = {
-        deletar : true,
-        id_filme
-    }
-
-    $.post(getApi('Filme'), dados, function(retorno) {
-        modalResultado(retorno.titulo, retorno.tipo);
-        listar();
+    var modalConfirmacao = confirmacaoModal();
+    
+    $('#div_modal').html(modalConfirmacao);
+    $('#modalConfirmacao').modal('show');
+    
+    $('.deletar_confirma').click(function() {
+        $('#modalConfirmacao').modal('hide');
+        
+        var dados = {
+            deletar : true,
+            id_filme
+        }
+    
+        $.post(getApi('Filme'), dados, function(retorno) {
+            modalResultado(retorno.titulo, retorno.tipo);
+            listar();
+        });
     });
 }

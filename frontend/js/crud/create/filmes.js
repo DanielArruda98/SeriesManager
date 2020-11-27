@@ -48,15 +48,18 @@ $('#btn-cadastrar_genero_filme').click(function () {
     if (id > 0) {
         generos_filmes.push([id, genero]);
         listarOptionsGenero();
-
-        var span = "";
-
-        $.each(generos_filmes, function (idx, value) {
-            if(value[0] != null) {
-                span += listarGenerosEscolhidos(value[0], value[1]);
-            }
-        });
-
-        $('#tags-filmes').html(span);
+        listarSpanGeneros(generos_filmes);
     }
 });
+
+function listarSpanGeneros(generos_filmes) {
+    var span = "";
+
+    $.each(generos_filmes, function (idx, value) {
+        if (value[0] != null) {
+            span += listarGenerosEscolhidos(value[0], value[1]);
+        }
+    });
+
+    $('#tags-filmes').html(span);
+}

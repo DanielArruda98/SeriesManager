@@ -101,7 +101,7 @@
                         }
 
                         // Quantidade de Páginas
-                        $qtd_paginas = ceil($this->contarFilmes() / $qtd_resultados);
+                        $qtd_paginas = ceil($this->contarFilmes($busca) / $qtd_resultados);
 
                         return [
                             'catalogo' => $retorno,
@@ -125,7 +125,7 @@
 
             try {
 
-                $sql = "SELECT filmes.*, generos.descricao AS genero FROM filmes
+                $sql = "SELECT filmes.*, generos.id AS id_genero, generos.descricao AS genero FROM filmes
                         LEFT JOIN generos_filmes ON fk_filme = filmes.id
                         LEFT JOIN generos ON fk_genero = generos.id
                         WHERE filmes.id = :id_filme";
@@ -140,7 +140,6 @@
 
                     if ($cont > 0) {
                         $dados = $consulta->fetchAll();
-                        $i = 0;
 
                         foreach($dados as $dado) {
                             $retorno['id_filme'] = $dado['id'];
@@ -149,7 +148,10 @@
                             $retorno['duracao'] = $dado['duracao'];
                             $retorno['torrent'] = $dado['torrent'];
                             $retorno['capa'] = $dado['capa'];
-                            $retorno['genero'][] = $dado['genero'];
+                            $retorno['genero'][] = array(
+                                'id' => $dado['id_genero'],
+                                'genero' => $dado['genero']
+                            );
                         }
 
                         return $retorno;
@@ -165,15 +167,25 @@
 
         /*======================================================================================*/
 
-        public function contarFilmes() {
+        public function contarFilmes($busca = null) {
             $conexao = new Conexao();
             $connection = $conexao->conectar();
 
             try {
+                $filtro = "";
 
-                $sql = "SELECT COUNT(id) AS num_total FROM filmes";
+                if($busca != null) {
+                    $filtro = "WHERE titulo LIKE :filtro";
+                }
+
+                $sql = "SELECT COUNT(id) AS num_total FROM filmes
+                        $filtro";
 
                 $consulta = $connection->prepare($sql);
+
+                if($busca != null) {
+                    $consulta->bindValue(":filtro", "%$busca%");
+                }
 
                 if($consulta->execute()) {
                     return $consulta->fetchAll()[0][0];
@@ -255,6 +267,45 @@
                 } else {
                     return [
                         'titulo' => 'Erro ao deletar filme',
+                        'tipo' => 'danger'
+                    ];
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar filme: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+        /*======================================================================================*/
+
+        public function atualizar($id_filme, $titulo, $ano, $duracao, $torrent, $capa) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+                $sql = "UPDATE filmes
+                        SET titulo = :titulo, ano = :ano, duracao = :duracao, torrent = :torrent, capa = :capa
+                        WHERE id = :id_filme";
+
+                $consulta = $connection->prepare($sql);
+
+                $consulta->bindValue(":id_filme", $id_filme);
+                $consulta->bindValue(":titulo", $titulo);
+                $consulta->bindValue(":ano", $ano);
+                $consulta->bindValue(":duracao", $duracao);
+                $consulta->bindValue(":torrent", $torrent);
+                $consulta->bindValue(":capa", $capa);
+
+                if ($consulta->execute()) {
+                    return [
+                        'titulo' => 'Filme atualizado com sucesso!', 
+                        'tipo' => 'success'
+                    ];
+                } else {
+                    return [
+                        'titulo' => 'Erro ao atualizar filme',
                         'tipo' => 'danger'
                     ];
                 }

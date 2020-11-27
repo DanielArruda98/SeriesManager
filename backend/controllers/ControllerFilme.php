@@ -53,4 +53,25 @@
         echo json_encode($retorno);
     }
 
+    if(isset($_POST['atualizar'])) {
+        $id_filme = $_POST['id_filme'];
+        $titulo = $_POST['titulo'];
+        $ano = $_POST['ano'];
+        $duracao = $_POST['duracao'];
+        $torrent = $_POST['torrent'];
+        $capa = $_POST['capa'];
+        $generos = $_POST['genero'];
+
+        $retorno = $filmes->atualizar($id_filme, $titulo, $ano, $duracao, $torrent, $capa);
+        $generosfilmes->deletarFilme($id_filme);
+
+        foreach($generos as $genero) {
+            if($genero[0] != null) {
+                $generosfilmes->cadastrar($genero[0], $id_filme);
+            }
+        }
+        
+        echo json_encode($retorno);
+    }
+
 ?>

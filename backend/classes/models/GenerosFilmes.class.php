@@ -20,19 +20,69 @@
                 $consulta->bindValue(":filme", $filme);
 
                 if ($consulta->execute()) {
+                    return true;
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar gênero: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+        /*======================================================================================*/
+
+        public function deletarFilme($id_filme) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+                $sql = "DELETE FROM generos_filmes
+                        WHERE fk_filme = :id_filme";
+
+                $consulta = $connection->prepare($sql);
+
+                $consulta->bindValue(":id_filme", $id_filme);
+
+                if ($consulta->execute()) {
+                    return true;
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar filme: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+        /*======================================================================================*/
+
+        public function deletarGenero($id_genero) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+                $sql = "DELETE FROM generos_filmes
+                        WHERE fk_genero = :id_genero";
+
+                $consulta = $connection->prepare($sql);
+
+                $consulta->bindValue(":id_genero", $id_genero);
+
+                if ($consulta->execute()) {
                     return [
-                        'titulo' => 'Gênero associado ao filme com sucesso!', 
+                        'titulo' => 'Genero removido com sucesso!',
                         'tipo' => 'success'
                     ];
                 } else {
                     return [
-                        'titulo' => 'Erro ao associar gênero ao filme',
+                        'titulo' => 'Erro ao remover gênero',
                         'tipo' => 'danger'
                     ];
                 }
 
             } catch (PDOException $e) {
-                echo "Erro de cadastrar gênero: " . $e->getMessage();
+                echo "Erro de cadastrar filme: " . $e->getMessage();
             } catch (Exception $e) {
                 echo "Erro: " . $e->getMessage();
             }

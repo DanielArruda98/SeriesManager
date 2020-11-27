@@ -1,5 +1,5 @@
 var pagina = 1;
-var qtd_resultados = 4;
+var qtd_resultados = 20;
 var ordem = 'alfabetica';
 
 listar();
@@ -27,14 +27,18 @@ function listar() {
     $.get(getApi('Filme'), dados, function (retorno) {  
         var cartazes = "";
 
-        $.each(retorno['catalogo'], function(idx, value) {
-            var capa = (value.capa).replace('file/d/', 'uc?id=').replace('/view?usp=sharing', '');
-            cartazes += cartazFilme(value.id_filme, value.titulo, capa);
-        });
+        if(retorno != null) {
+            $.each(retorno['catalogo'], function(idx, value) {
+                var capa = (value.capa).replace('file/d/', 'uc?id=').replace('/view?usp=sharing', '');
+                cartazes += cartazFilme(value.id_filme, value.titulo, capa);
+            });
+
+            gerarPaginacao(retorno['qtd_paginas']);
+        } else {
+            gerarPaginacao(0);
+        }
 
         $('#catalogo_filmes').html(cartazes);
-
-        gerarPaginacao(retorno['qtd_paginas']);
     });
 }
 
@@ -50,8 +54,8 @@ function detalhesFilme(id) {
         generos = "";
 
         $.each(retorno.genero, function(idx, value) {
-            if(value != null) {
-                generos += value+". ";
+            if(value.genero != null) {
+                generos += value.genero+". ";
             }
         });
 
@@ -67,7 +71,7 @@ function detalhesFilme(id) {
 
 function listarOptionsGenero() {
     var dados = {
-        listar
+        listar : true
     };
 
     $.get(getApi('Genero'), dados, function (retorno) {

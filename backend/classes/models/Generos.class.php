@@ -39,7 +39,7 @@
 
         /*======================================================================================*/
 
-        public function listar($id_genero = 0) {
+        public function listar($id_genero = 0, $busca = null) {
             $conexao = new Conexao();
             $connection = $conexao->conectar();
 
@@ -47,9 +47,52 @@
 
                 $condicao = $id_genero == 0 ? ">" : "=";
 
+                $filtro = "";
+
+                if($busca != null) {
+                    $filtro = "AND descricao LIKE :filtro";
+                }
+
                 $sql = "SELECT * FROM generos 
-                        WHERE id $condicao :id_genero
+                        WHERE id $condicao :id_genero $filtro
                         ORDER BY descricao;";
+
+                $consulta = $connection->prepare($sql);
+                
+                $consulta->bindValue(":id_genero", $id_genero);
+
+                if($busca != null) {
+                    $consulta->bindValue(":filtro", "%$busca%");
+                }
+
+                if($consulta->execute()) {
+
+                    $cont = $consulta->rowCount();
+
+                    if ($cont > 0) {
+                        $generos = $consulta->fetchAll();
+                        
+                        return $generos;
+                    }
+                }
+                
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar filme: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
+
+        /*======================================================================================*/
+
+        public function consultar($id_genero) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+
+                $sql = "SELECT * FROM generos 
+                        WHERE id = :id_genero;";
 
                 $consulta = $connection->prepare($sql);
                 
@@ -60,14 +103,8 @@
                     $cont = $consulta->rowCount();
 
                     if ($cont > 0) {
-                        $generos = $consulta->fetchAll();
-                        
-                        return $generos;
-                    } else {
-                        return ['vazio' => 'Nenhum filme cadastrado'];
+                        return $consulta->fetchAll()[0];
                     }
-                } else {
-                    return ['erro' => 'Erro ao consultar os filmes'];
                 }
 
             } catch (PDOException $e) {
@@ -77,9 +114,9 @@
             }
         }
 
-         /*======================================================================================*/
+        /*======================================================================================*/
 
-         public function consultar($genero) {
+        public function consultarDescricao($genero) {
             $conexao = new Conexao();
             $connection = $conexao->conectar();
 
@@ -143,6 +180,40 @@
             }
         }
 
+         /*======================================================================================*/
+
+         public function atualizar($id_genero, $descricao) {
+            $conexao = new Conexao();
+            $connection = $conexao->conectar();
+
+            try {
+                $sql = "UPDATE generos
+                        SET descricao = :descricao
+                        WHERE id = :id_genero";
+
+                $consulta = $connection->prepare($sql);
+
+                $consulta->bindValue(":id_genero", $id_genero);
+                $consulta->bindValue(":descricao", $descricao);
+
+                if ($consulta->execute()) {
+                    return [
+                        'titulo' => 'Gênero atualizado com sucesso!', 
+                        'tipo' => 'success'
+                    ];
+                } else {
+                    return [
+                        'titulo' => 'Erro ao atualizar gênero',
+                        'tipo' => 'danger'
+                    ];
+                }
+
+            } catch (PDOException $e) {
+                echo "Erro de cadastrar filme: " . $e->getMessage();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
+        }
 
         /*======================================================================================*/
 
