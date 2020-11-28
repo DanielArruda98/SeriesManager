@@ -1,6 +1,6 @@
 // Link api
 function getApi(pagina) {
-    return `https://api-seriesmanager.000webhostapp.com/backend/controllers/Controller${pagina}.php`;
+    return `https://api-seriesmanager.000webhostapp.com/controllers/Controller${pagina}.php`;
     // return `http://localhost/SeriesManager/backend/controllers/Controller${pagina}.php`;
 }
 
